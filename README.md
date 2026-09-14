@@ -6,7 +6,7 @@ SC Quantum founded the Quantathon and ran its first two editions in the Southeas
 
 ## Links
 
-| | |
+| What | Link |
 |---|---|
 | Event page, travel, hotels, FAQ | https://clemsonquantum.com/events/hackathons/sc-quantathon-v3-2026/ |
 | Devpost (rules, submission, schedule) | https://sc-quantathon-v3.devpost.com/ |
