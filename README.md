@@ -2,7 +2,7 @@
 
 Bootcamp and challenge materials for SC Quantathon v3, the 24-hour quantum computing hackathon hosted by Clemson Quantum Club at the Watt Family Innovation Center, Clemson University, September 25–27, 2026.
 
-SC Quantum founded the Quantathon and ran its first two editions in the Southeast. This third edition is hosted at Clemson. Teams of 3–5 undergraduate or graduate students, 18 or older, take on a challenge written by one of three challenge sponsors, build for 24 hours, and present to judges on Sunday.
+SC Quantum founded the Quantathon and ran its first two editions in the Southeast. This third edition is hosted at Clemson. Teams of 3–5 undergraduate or graduate students take on a challenge written by one of three challenge sponsors, build for 24 hours, and present to judges on Sunday.
 
 ## Links
 
