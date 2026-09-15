@@ -30,13 +30,13 @@ The Discord invite is sent to accepted participants by email.
 
 ## Bootcamp
 
-The bootcamp is self-paced and released one weekday at a time from September 14 to 25. Each day has written notes and a notebook you can run; Day 2 is a recorded demo from qBraid. It assumes no prior quantum experience and is open to everyone, registered or not. Materials land in `bootcamp/` as they are posted.
+The bootcamp is self-paced and released one weekday at a time from September 14 to 25. Each day has written notes and a notebook you can run; Day 3 is a recorded demo from qBraid. It assumes no prior quantum experience and is open to everyone, registered or not. Materials land in `bootcamp/` as they are posted, one folder per day with a notebook, a solutions notebook, and a PDF of notes.
 
 | Day | Date | Topic |
 |---|---|---|
 | 1 | Mon, Sep 14 | Setup, Python Refresher, and Your First Circuit |
-| 2 | Tue, Sep 15 | qBraid Platform Demo: Lab, Credits, and Submitting to a QPU (recorded, Alex Van Bussum, qBraid) |
-| 3 | Wed, Sep 16 | The Math Behind a Qubit |
+| 2 | Tue, Sep 15 | The Math Behind a Qubit |
+| 3 | Wed, Sep 16 | qBraid Platform Demo: Lab, Credits, and Submitting to a QPU (recorded, Alex Van Bussum, qBraid) |
 | 4 | Thu, Sep 17 | Single-Qubit Gates and Measurement |
 | 5 | Fri, Sep 18 | Multi-Qubit Gates and Entanglement |
 | 6 | Mon, Sep 21 | Real Hardware: Transpilation, Noise, and Error Mitigation |
@@ -47,7 +47,7 @@ The bootcamp is self-paced and released one weekday at a time from September 14 
 
 ## Challenges
 
-Three challenge sponsors each write one challenge. Teams rank their preferences Friday evening, assignments are posted Friday at 10:00 PM, and full briefs are released at the Saturday opening ceremony. Briefs and any starter material are added to `challenges/` at that point, not before.
+Three challenge sponsors each write one challenge. Teams rank their preferences Friday evening, assignments are posted Friday at 10:00 PM, and full briefs are released at the Saturday opening ceremony. Each challenge folder holds a README now; teasers are added Friday, September 25, and briefs plus any starter material at the opening ceremony on Saturday, September 26.
 
 - Savannah River National Laboratory
 - Quantum Rings
@@ -59,20 +59,26 @@ Three challenge sponsors each write one challenge. Teams rank their preferences 
 SC-Quantathon-v3/
   README.md
   LICENSE                      # Apache-2.0
+  requirements.txt
   bootcamp/
-    day-01/                    # notes.md, notebook.ipynb
-    day-02/
-    ...
-    day-10/
+    day-1/
+      1, notebook - Setup, Python Refresher, and Your First Circuit.ipynb
+      1, solutions - Setup, Python Refresher, and Your First Circuit.ipynb
+      1, notes - Setup, Python Refresher, and Your First Circuit.pdf
+      src/                     # LaTeX source and figure script for the notes
+    day-2/                     # same three files plus src/
+    day-4/ ... day-7/          # no day-3 folder: that day is qBraid's recorded demo; days 8 to 10 to come
   challenges/
-    srnl/                      # Released Saturday, September 26 at the opening ceremony
+    srnl/                      # README now; brief and starter material Saturday, September 26
     quantum-rings/
     ionq/
 ```
 
+Each bootcamp day has a notebook with exercises to complete, a solutions notebook with every exercise filled in and its outputs, and a PDF of notes that explains the same material with figures and references. Days are posted as they are ready.
+
 ## Running the notebooks
 
-The notebooks are written to run on [qBraid Lab](https://lab.qbraid.com/), the environment used during the hackathon. Create a free qBraid account at https://account.qbraid.com/ with the email you registered with; accepted participants are added to the SC Quantathon v3 organization on qBraid to receive credits, with no access key to enter. Also create an IBM Quantum account at https://quantum.cloud.ibm.com/ and save your API key. Those two are all you need in advance; the free IBM Open Plan gives up to 10 minutes of QPU time per 28 days, so debug on simulators first.
+The notebooks are written to run on qBraid Lab, the environment used during the hackathon. Create a free qBraid account at https://account.qbraid.com/ with the email you registered with, and launch Lab from that dashboard by choosing a compute profile and clicking Launch; accepted participants are added to the SC Quantathon v3 organization on qBraid to receive credits, with no access key to enter. Also create an IBM Quantum account at https://quantum.cloud.ibm.com/ and create an API key and an Open Plan instance. The Day 1 notebook asks for the key and the instance CRN in a hidden prompt and saves them on disk; never paste either into a notebook cell. Those two are all you need in advance; the free IBM Open Plan gives up to 10 minutes of QPU time per 28 days, so debug on simulators first.
 
 To run locally instead:
 
@@ -85,7 +91,7 @@ pip install -r requirements.txt
 jupyter lab
 ```
 
-A `requirements.txt` is added with the first notebook.
+The pinned `requirements.txt` is at the repository root; the notebooks are verified against it.
 
 ## Submissions
 

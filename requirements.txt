@@ -1,0 +1,8 @@
+qiskit==2.5.*
+qiskit-aer==0.17.*
+qiskit-ibm-runtime==0.49.*
+numpy
+scipy
+matplotlib
+pylatexenc
+jupyter
