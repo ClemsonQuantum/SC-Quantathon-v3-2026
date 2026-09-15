@@ -1,0 +1,47 @@
+# Local working material, never published
+docs/
+
+# Credentials: IBM Quantum API keys, instance CRNs, qBraid/IonQ/Quantum Rings tokens.
+# Never commit these in any form. The notebooks read them from a prompt or from .env.
+.env
+.env.*
+*.env
+secrets/
+secrets.*
+credentials*
+*.key
+*.token
+*api_key*
+*apikey*
+*crn*
+qiskit-ibm.json
+.qiskit/
+.qbraid/
+.quantumrings/
+
+# Python / Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# LaTeX build files (the PDFs are kept)
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+
+# Large or binary data
+*.h5
+*.hdf5
+*.pkl
+*.pth
+
+# OS
+.DS_Store
