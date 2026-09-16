@@ -177,7 +177,7 @@ $Y$ & $\ket{{+}i}, \ket{{-}i}$ & \code{sdg}, then \code{h} & $\ket{{+}i}$ \\
 
 The recipe behind the table is one rule. To measure in a basis $\{\ket{b_0}, \ket{b_1}\}$, apply the unitary $V$ that sends $\ket{b_0}\mapsto\ket{0}$ and $\ket{b_1}\mapsto\ket{1}$, then measure as usual; the outcome $k$ then means $\ket{b_k}$, with probability $|\braket{k|V|\psi}|^2 = |\braket{b_k|\psi}|^2$. For the $X$ basis $V = H$, since $H\ket{\pm} = \ket{0}, \ket{1}$; for the $Y$ basis $V = HS^\dagger$, since $S^\dagger$ first turns $\ket{{\pm}i}$ into $\ket{\pm}$. The same rule extends to any observable with a known eigenbasis, which is how Day~6 measures Pauli strings such as $XX$.
 
-The state $\ket{{+}i} = S H\ket{0} = (\ket{0} + i\ket{1})/\sqrt2$ sits on the $y$ axis. Read in $Z$ or $X$ it is a fair coin; read in $Y$ it is certain (Figure~\ref{fig:bases}). The general rule is the Born rule with the basis states in place of $\ket{0}$ and $\ket{1}$: the probability of the outcome $\ket{b}$ is $|\braket{b|\psi}|^2$. For the notebook's prediction exercise, $\ket{\psi} = R_y(2\pi/3)\ket{0} = \cos\frac\pi3\ket{0} + \sin\frac\pi3\ket{1}$, this gives $P(0) = \cos^2\frac\pi3 = 0.250$ in the $Z$ basis and $P(+) = \tfrac12(\cos\frac\pi3 + \sin\frac\pi3)^2 = 0.933$ in the $X$ basis; 1000 shots each returned $0.244$ and $0.942$.
+The state $\ket{{+}i} = S H\ket{0} = (\ket{0} + i\ket{1})/\sqrt2$ sits on the $y$ axis. Read in $Z$ or $X$ it is a fair coin; read in $Y$ it is certain (Figure~\ref{fig:bases}). The general rule is the Born rule with the basis states in place of $\ket{0}$ and $\ket{1}$: the probability of the outcome $\ket{b}$ is $|\braket{b|\psi}|^2$. For the notebook's prediction exercise, $\ket{\psi} = R_y(2\pi/3)\ket{0} = \cos\frac\pi3\ket{0} + \sin\frac\pi3\ket{1}$, this gives $P(0) = \cos^2\frac\pi3 = 0.250$ in the $Z$ basis and $P(+) = \tfrac12(\cos\frac\pi3 + \sin\frac\pi3)^2 = 0.933$ in the $X$ basis; 1000 shots each returned $0.243$ and $0.935$.
 
 \begin{figure}[h]
 \centering
@@ -304,7 +304,7 @@ Start from $\ket{00}$, apply $H$ to qubit~0, then CNOT with qubit~0 as control (
 \xrightarrow{\;\mathrm{CNOT}_{0\to1}\;} \frac{1}{\sqrt2}\big(\ket{00} + \ket{11}\big) = \ket{\Phi^+} .
 \label{eq:bellprep}
 \end{equation}
-In the branch where $q_0 = 1$ the CNOT flips $q_1$ as well, so the two qubits end up agreeing in every branch. By Eq.~\eqref{eq:bell} the result has rank two and is entangled. Measured, it gives \code{00} or \code{11} and nothing else, each half the time; the notebook's 1000 shots gave 493 and 507.
+In the branch where $q_0 = 1$ the CNOT flips $q_1$ as well, so the two qubits end up agreeing in every branch. By Eq.~\eqref{eq:bell} the result has rank two and is entangled. Measured, it gives \code{00} or \code{11} and nothing else, each half the time; the notebook's 1000 shots gave 504 and 496.
 
 \begin{figure}[h]
 \centering
@@ -363,7 +363,7 @@ $\ket{+}\ket{+}$ & $0$ & $1$ & $0$ & $0$ \\
 \label{tab:corr}
 \end{table}
 
-The $Y$ basis completes the picture. In terms of $\ket{{\pm}i} = (\ket{0} \pm i\ket{1})/\sqrt2$ the same substitution gives $\ket{\Phi^+} = (\ket{{+}i,{-}i} + \ket{{-}i,{+}i})/\sqrt2$: the two bits now always \emph{differ}, $\braket{YY} = -1$, and the notebook's 1000 shots in the $Y$ basis gave 510 of \code{01} and 490 of \code{10}. Perfect correlations like these can still be reproduced by assigning each qubit definite values in advance: a pair of coins prepared with the same hidden list of answers for the $Z$, $X$, and $Y$ questions would agree and disagree in exactly the same pattern. Ruling that out takes measurements at intermediate angles. With $Z$ and $X$ on the first qubit and the rotated observables $(Z \pm X)/\sqrt2$ on the second, the combination
+The $Y$ basis completes the picture. In terms of $\ket{{\pm}i} = (\ket{0} \pm i\ket{1})/\sqrt2$ the same substitution gives $\ket{\Phi^+} = (\ket{{+}i,{-}i} + \ket{{-}i,{+}i})/\sqrt2$: the two bits now always \emph{differ}, $\braket{YY} = -1$, and the notebook's 1000 shots in the $Y$ basis gave 516 of \code{01} and 484 of \code{10}. Perfect correlations like these can still be reproduced by assigning each qubit definite values in advance: a pair of coins prepared with the same hidden list of answers for the $Z$, $X$, and $Y$ questions would agree and disagree in exactly the same pattern. Ruling that out takes measurements at intermediate angles. With $Z$ and $X$ on the first qubit and the rotated observables $(Z \pm X)/\sqrt2$ on the second, the combination
 \begin{equation}
 S = \braket{Z\otimes B_0} + \braket{Z\otimes B_1} + \braket{X\otimes B_0} - \braket{X\otimes B_1},\qquad B_{0,1} = \frac{Z \pm X}{\sqrt2},
 \label{eq:chsh}
@@ -376,7 +376,7 @@ The Bell construction extends to any number of qubits. One $H$ followed by a cha
 \begin{equation}
 \ket{\mathrm{GHZ}_n} = \frac{1}{\sqrt2}\big(\ket{0\cdots0} + \ket{1\cdots1}\big),
 \end{equation}
-and the notebook's five-qubit version measured 498 of \code{00000} and 502 of \code{11111}. Every branch involves all $n$ qubits at once: measuring any single qubit collapses the whole register to one of the two bitstrings, and until then no qubit has a value of its own. Losing one qubit of a three-qubit GHZ state leaves the other two in a classical mixture of $\ket{00}$ and $\ket{11}$, with purity $1/2$: as with the Bell pair, the information is in the correlations, not in any one qubit.
+and the notebook's five-qubit version measured 508 of \code{00000} and 492 of \code{11111}. Every branch involves all $n$ qubits at once: measuring any single qubit collapses the whole register to one of the two bitstrings, and until then no qubit has a value of its own. Losing one qubit of a three-qubit GHZ state leaves the other two in a classical mixture of $\ket{00}$ and $\ket{11}$, with purity $1/2$: as with the Bell pair, the information is in the correlations, not in any one qubit.
 
 A state vector of $n$ qubits holds $2^n$ complex numbers at 16 bytes each, so its memory is $2^n \times 16$ bytes and every added qubit doubles it (Figure~\ref{fig:memory}). The contrast with a classical register is the whole point: $n$ bits are described by $n$ numbers, $n$ qubits by $2^n$, because the state records an amplitude for every bitstring at once rather than one bitstring. At 30 qubits it is 16~GB, the whole memory of a laptop; at 40 it is 16~TB; at 45 it is half a petabyte, the largest full state vector that has actually been simulated; at 49 it is 9~PB, about all the memory of the largest supercomputer; at 56 it is an exabyte. This is why a quantum computer cannot be replaced by simulating one, and why Day~9 introduces simulators that do not store the full vector.
 
@@ -387,7 +387,34 @@ A state vector of $n$ qubits holds $2^n$ complex numbers at 16 bytes each, so it
 \label{fig:memory}
 \end{figure}
 
-On hardware, the small bars at \code{01} and \code{10} that a Bell measurement returns, a few percent of the shots, are the first sign of the gate and readout errors that Day~5 measures one by one.
+\section{The Bell state on a real processor}
+
+The Bell circuit is the standard first test of a two-qubit gate on a real chip. The transpiler at optimization level 3 chose a coupled pair from the calibration data, physical qubits 55 and 59 of \code{ibm\_kingston}, and rewrote $H$ and CNOT into the chip's native gates, five $R_z$, three $\sqrt X$, and one \code{cz}; a Sampler ran the result. Figure~\ref{fig:hw} and Table~\ref{tab:hw} compare three things: the Born rule of Section~4 turned into counts, the seeded simulator drawing from it, and the processor.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}llllll@{}}
+\toprule
+& \code{00} & \code{01} & \code{10} & \code{11} & impossible outcomes \\
+\midrule
+exact (Born rule) & 500 & 0 & 0 & 500 & 0\% \\
+simulator, 1000 shots & 504 & 0 & 0 & 496 & 0\% \\
+\code{ibm\_kingston}, 1000 shots & 512 & 6 & 4 & 478 & 1.0\% \\
+\bottomrule
+\end{tabular}
+\caption{The Bell state three ways. The Hellinger fidelity between the processor's histogram and the exact distribution is $0.990$.}
+\label{tab:hw}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{bell_hardware}
+\caption{The three rows of Table~\ref{tab:hw}.}
+\label{fig:hw}
+\end{figure}
+
+The processor adds what the mathematics does not have: ten shots of \code{01} and \code{10}, outcomes the ideal circuit can never produce, and a slight tilt between \code{00} and \code{11}, 512 against 478, which at $\sigma \approx 16$ is a two-sigma tilt and so may be statistics or may be a small readout asymmetry. The one percent of impossible outcomes is not: it comes from the two-qubit gate, from the qubits decaying during the circuit, and from readout error. Day~5 measures each of the three separately, on a snapshot of a real machine, and shows how much of this can be corrected; it also reuses this very run as its recorded device data. The contrast with the 70/30 random bit of Days~1 and 2 is the layout: that circuit ran on physical qubit~0 because optimization level 1 does not search for a good qubit, while level 3 chose this pair from the calibration table.
 
 \section{Summary}
 
@@ -403,6 +430,7 @@ On hardware, the small bars at \code{01} and \code{10} that a Bell measurement r
 \item $H$ then CNOT makes the Bell state, Eq.~\eqref{eq:bellprep}; $Z$ and $X$ on one qubit reach the other three (Table~\ref{tab:bellstates}).
 \item The Bell state's bits agree in the $Z$ and $X$ bases, Eq.~\eqref{eq:bellx}, and disagree in the $Y$ basis. No product state does all three (Table~\ref{tab:corr}).
 \item GHZ generalizes Bell to $n$ qubits. A state vector costs $2^n \times 16$ bytes, which stops a laptop near 30 qubits and a supercomputer near 49.
+\item On a real processor the Bell state came back with 1\% of impossible outcomes and a Hellinger fidelity of 0.990 to the exact distribution (Table~\ref{tab:hw}); Day~5 measures where the missing percent goes.
 \end{itemize}
 
 \begin{thebibliography}{9}

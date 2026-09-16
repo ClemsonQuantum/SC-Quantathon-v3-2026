@@ -34,13 +34,14 @@ def counts_of(qc):
 
 # Counts printed by the executed solutions notebook
 NB_BASES = {"Z": {"0": 470, "1": 530}, "X": {"0": 503, "1": 497}, "Y": {"0": 1000}}
-NB_PREDICT = {"z": 0.244, "x": 0.942}
+NB_PREDICT = {"z": 0.243, "x": 0.935}
 NB_RY = {"0": 222, "1": 778}
-NB_BELL = {"00": 493, "11": 507}
-NB_CORR = {("Bell state", "Z"): {"00": 490, "11": 510}, ("Bell state", "X"): {"00": 508, "11": 492},
-           (r"$|+\rangle|+\rangle$", "Z"): {"00": 269, "01": 247, "10": 247, "11": 237}, (r"$|+\rangle|+\rangle$", "X"): {"00": 1000}}
-NB_YY = {"01": 510, "10": 490}
-NB_GHZ = {"00000": 498, "11111": 502}
+NB_BELL = {"00": 504, "11": 496}
+NB_QPU = {"00": 512, "11": 478, "01": 6, "10": 4}      # ibm_kingston (Heron r2), physical qubits 55 and 59, job dal16o6lg97s73c8dh90
+NB_CORR = {("Bell state", "Z"): {"00": 493, "11": 507}, ("Bell state", "X"): {"00": 493, "11": 507},
+           (r"$|+\rangle|+\rangle$", "Z"): {"00": 226, "01": 264, "10": 257, "11": 253}, (r"$|+\rangle|+\rangle$", "X"): {"00": 1000}}
+NB_YY = {"01": 516, "10": 484}
+NB_GHZ = {"00000": 508, "11111": 492}
 def expectation(qc, label):
     return float(estimator.run([(qc, SparsePauliOp(label))]).result()[0].data.evs)
 def bloch(state):
@@ -71,7 +72,7 @@ ax.set_xlim(-0.95, 0.95); ax.set_ylim(-0.95, 0.95); ax.set_zlim(-0.95, 0.95)
 ax.set_box_aspect((1, 1, 1)); ax.set_axis_off(); ax.view_init(elev=22, azim=-55)
 ax.legend(frameon=False, loc="lower center", ncol=2)
 fig.savefig(OUT / "rotation_paths.pdf"); plt.close(fig)
-print("[1/6] rotation_paths.pdf")
+print("[1/7] rotation_paths.pdf")
 
 # Figure 2: R_y sweep, exact and sampled
 thetas = np.linspace(0, 2 * np.pi, 25)
@@ -87,7 +88,7 @@ ax.plot(thetas, p1_sampled, "o", ms=4, color=ORANGE, label=f"{SHOTS} shots")
 ax.set_xlabel(r"$\theta$"); ax.set_ylabel("$P(1)$"); ax.legend(frameon=False)
 ax.set_xticks([0, np.pi / 2, np.pi, 3 * np.pi / 2, 2 * np.pi], ["0", r"$\pi/2$", r"$\pi$", r"$3\pi/2$", r"$2\pi$"])
 fig.savefig(OUT / "ry_sweep.pdf"); plt.close(fig)
-print("[2/6] ry_sweep.pdf   max |sampled - exact| =", round(float(np.max(np.abs(np.array(p1_sampled) - p1_exact))), 3))
+print("[2/7] ry_sweep.pdf   max |sampled - exact| =", round(float(np.max(np.abs(np.array(p1_sampled) - p1_exact))), 3))
 
 # Figure 3: |+i> read in three bases
 def measure_in_basis(prep, basis):
@@ -103,7 +104,7 @@ for ax, (b, c), color in zip(axes, basis_counts.items(), [BLUE, ORANGE, GREEN]):
     ax.bar_label(bb, padding=2, fontsize=8); ax.set_title(f"${b}$ basis"); ax.set_xlabel("outcome"); ax.set_ylim(0, 1150)
 axes[0].set_ylabel(f"counts out of {SHOTS}")
 fig.savefig(OUT / "three_bases.pdf"); plt.close(fig)
-print("[3/6] three_bases.pdf   counts:", basis_counts)
+print("[3/7] three_bases.pdf   counts:", basis_counts)
 
 # Numbers for the predict-then-measure exercise
 prep_t = QuantumCircuit(1); prep_t.ry(2 * np.pi / 3, 0)
@@ -116,7 +117,7 @@ print("      predict-then-measure: exact P(0)_Z =", round(float(exact_z), 4), " 
 bell = QuantumCircuit(2); bell.h(0); bell.cx(0, 1)
 bell_meas = bell.copy(); bell_meas.measure_all()
 fig = bell_meas.draw("mpl", style="clifford"); fig.savefig(OUT / "bell_circuit.pdf"); plt.close(fig)
-print("[4/6] bell_circuit.pdf")
+print("[4/7] bell_circuit.pdf")
 
 bell_counts = NB_BELL
 print("      Bell counts, 1000 shots:", bell_counts)
@@ -137,7 +138,7 @@ for i, (name, prep) in enumerate([("Bell state", bell), (r"$|+\rangle|+\rangle$"
 for ax in axes[1]: ax.set_xlabel("outcome")
 for ax in axes[:, 0]: ax.set_ylabel("counts")
 fig.tight_layout(); fig.savefig(OUT / "correlations.pdf"); plt.close(fig)
-print("[5/6] correlations.pdf   ", {f"{k[0]} {k[1]}{k[1]}": v for k, v in res.items()})
+print("[5/7] correlations.pdf   ", {f"{k[0]} {k[1]}{k[1]}": v for k, v in res.items()})
 print("      <ZZ>,<XX>,<YY>,<ZX> Bell:", [round(expectation(bell, p), 3) for p in ("ZZ", "XX", "YY", "ZX")],
       " |+>|+>:", [round(expectation(plus_plus, p), 3) for p in ("ZZ", "XX", "YY", "ZX")])
 yy = bell.copy()
@@ -160,4 +161,17 @@ ax.axhline(16 * 2 ** 30, ls="--", lw=0.8, color=GRAY); ax.text(1.5, 16 * 2 ** 30
 ax.axhline(2 ** 60, ls="--", lw=0.8, color=GRAY); ax.text(1.5, 2 ** 60 * 2.2, "1 EiB (56 qubits)", fontsize=8, color=GRAY)
 ax.set_xlabel("qubits $n$"); ax.set_ylabel("memory (bytes)"); ax.legend(frameon=False, loc="lower right")
 fig.savefig(OUT / "memory_scaling.pdf"); plt.close(fig)
-print("[6/6] memory_scaling.pdf")
+print("[6/7] memory_scaling.pdf")
+
+# Figure 7: the Bell state three ways (section 13)
+from qiskit.quantum_info import hellinger_fidelity
+exact = {"00": 500, "11": 500}
+fig, ax = plt.subplots(figsize=(5.2, 3.0))
+bars(ax, exact, GRAY, "exact (Born rule)", -0.26, 0.26)
+bars(ax, NB_BELL, BLUE, "simulator", 0.0, 0.26)
+bars(ax, NB_QPU, ORANGE, "ibm_kingston", 0.26, 0.26)
+ax.set_xlabel("outcome"); ax.set_ylabel(f"counts out of {SHOTS}"); ax.set_ylim(0, 640)
+ax.legend(frameon=False, loc="upper center", bbox_to_anchor=(0.5, 1.16), ncol=3)
+fig.savefig(OUT / "bell_hardware.pdf"); plt.close(fig)
+imp = (NB_QPU.get("01", 0) + NB_QPU.get("10", 0)) / SHOTS
+print("[7/7] bell_hardware.pdf   hardware:", NB_QPU, f" impossible {imp:.1%}, Hellinger fidelity to the exact distribution {hellinger_fidelity(exact, NB_QPU):.3f}, to the simulator run {hellinger_fidelity(NB_BELL, NB_QPU):.3f}")

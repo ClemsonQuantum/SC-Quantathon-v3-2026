@@ -23,7 +23,7 @@ SEED = 7
 SHOTS = 1000
 DIRECT_COUNTS = [{"0": 502, "1": 498}, {"0": 511, "1": 489}]                  # notebook section 5, |+> and |-> measured directly
 SIM_FOUR = [{"0": 487, "1": 513}, {"0": 505, "1": 495}, {"0": 1000}, {"1": 1000}]   # notebook section 9, simulator
-QPU_FOUR = [{"0": 321, "1": 679}, {"0": 333, "1": 667}, {"0": 459, "1": 541}, {"0": 168, "1": 832}]   # ibm_kingston, qubit 0, job dal03h8t9ckc739ktps0
+QPU_FOUR = [{"0": 308, "1": 692}, {"0": 299, "1": 701}, {"0": 453, "1": 547}, {"0": 148, "1": 852}]   # ibm_kingston, qubit 0, job dal14kot9ckc739kv7n0
 LABELS = ["|+> direct", "|-> direct", "|+> after H", "|-> after H"]
 
 plt.rcParams.update({
@@ -162,10 +162,12 @@ print("[6/7] interference_paths.pdf   HH counts:", run(hh), " HZH counts:", run(
 
 # Figure 7: section 9, the four circuits on the simulator and on ibm_kingston
 fig, axes = plt.subplots(1, 4, figsize=(9.6, 2.7), sharey=True)
-for ax, label, sc, qcnt in zip(axes, LABELS, SIM_FOUR, QPU_FOUR):
-    b1 = ax.bar([-0.2, 0.8], [sc.get("0", 0), sc.get("1", 0)], 0.4, color=BLUE, label="simulator")
-    b2 = ax.bar([0.2, 1.2], [qcnt.get("0", 0), qcnt.get("1", 0)], 0.4, color=ORANGE, label="ibm_kingston")
-    ax.bar_label(b1, padding=2, fontsize=7); ax.bar_label(b2, padding=2, fontsize=7)
+EXACT_FOUR = [{"0": 500, "1": 500}, {"0": 500, "1": 500}, {"0": 1000}, {"1": 1000}]
+for ax, label, ex, sc, qcnt in zip(axes, LABELS, EXACT_FOUR, SIM_FOUR, QPU_FOUR):
+    b0 = ax.bar([-0.27, 0.73], [ex.get("0", 0), ex.get("1", 0)], 0.26, color=GRAY, label="exact")
+    b1 = ax.bar([0.0, 1.0], [sc.get("0", 0), sc.get("1", 0)], 0.26, color=BLUE, label="simulator")
+    b2 = ax.bar([0.27, 1.27], [qcnt.get("0", 0), qcnt.get("1", 0)], 0.26, color=ORANGE, label="ibm_kingston")
+    ax.bar_label(b1, padding=2, fontsize=6); ax.bar_label(b2, padding=2, fontsize=6)
     ax.set_xticks([0, 1], ["0", "1"]); ax.set_title(label.replace("|+>", r"$|+\rangle$").replace("|->", r"$|-\rangle$").replace("after H", r"after $H$")); ax.set_ylim(0, 1180)
 axes[0].set_ylabel(f"counts out of {SHOTS}"); axes[0].legend(frameon=False, fontsize=8)
 fig.tight_layout(); fig.savefig(OUT / "hardware_four.pdf"); plt.close(fig)
