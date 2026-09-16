@@ -3,6 +3,7 @@ qiskit-aer==0.17.*
 qiskit-ibm-runtime==0.49.*
 numpy
 scipy
+scikit-learn
 matplotlib
 pylatexenc
 jupyter

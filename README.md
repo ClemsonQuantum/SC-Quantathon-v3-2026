@@ -37,10 +37,10 @@ The bootcamp is self-paced and released one weekday at a time from September 14 
 | 1 | Mon, Sep 14 | Setup, Python Refresher, and Your First Circuit |
 | 2 | Tue, Sep 15 | The Math Behind a Qubit |
 | 3 | Wed, Sep 16 | qBraid Platform Demo: Lab, Credits, and Submitting to a QPU (recorded, Alex Van Bussum, qBraid) |
-| 4 | Thu, Sep 17 | Single-Qubit Gates and Measurement |
-| 5 | Fri, Sep 18 | Multi-Qubit Gates and Entanglement |
-| 6 | Mon, Sep 21 | Real Hardware: Transpilation, Noise, and Error Mitigation |
-| 7 | Tue, Sep 22 | Variational Algorithms: VQE, QAOA, and a Taste of QML |
+| 4 | Thu, Sep 17 | Gates, Measurement, and Entanglement |
+| 5 | Fri, Sep 18 | Real Hardware: Transpilation, Noise, and Error Mitigation |
+| 6 | Mon, Sep 21 | Variational Algorithms: VQE and QAOA |
+| 7 | Tue, Sep 22 | Quantum Machine Learning |
 | 8 | Wed, Sep 23 | SRNL: Mapping Applied Research to Qubits |
 | 9 | Thu, Sep 24 | Quantum Rings: Simulating Beyond Statevector |
 | 10 | Fri, Sep 25 | IonQ: Trapped Ions and Native Gates |
