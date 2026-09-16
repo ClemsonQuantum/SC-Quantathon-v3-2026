@@ -31,7 +31,7 @@ The Discord invite is sent to accepted participants by email.
 
 ## Bootcamp
 
-The bootcamp is self-paced and released one weekday at a time from September 14 to 25. Each day has written notes and a notebook you can run; Day 3 is a recorded demo from qBraid. It assumes no prior quantum experience and is open to everyone, registered or not. Materials land in `bootcamp/` as they are posted, one folder per day with a notebook, a solutions notebook, and a PDF of notes.
+The bootcamp is self-paced and released one weekday at a time from September 14 to 25. Each day has written notes and a notebook you can run; Day 3 is a recorded demo from qBraid. It assumes no prior quantum experience and is open to everyone, registered or not. Materials land in `bootcamp/` as they are posted, one folder per day with a notebook, a solutions notebook, and a PDF of notes. Day 3 is the exception: its folder holds the recording instead.
 
 | Day | Date | Topic |
 |---|---|---|
@@ -68,16 +68,15 @@ SC-Quantathon-v3-2026/
       1, notes - Setup, Python Refresher, and Your First Circuit.pdf
       src/                     # LaTeX source and figure script for the notes
     day-2/                     # same three files plus src/
-                               # each later day is added on the morning it is released;
-                               # there is no day-3 folder, that day is qBraid's recorded demo
-                               # and the video is on the bootcamp page
+    day-3/                     # the recorded qBraid demo and a README; no notebook or notes
+                               # each later day is added on the morning it is released
   challenges/
     srnl/                      # README now; brief and starter material Saturday, September 26
     quantum-rings/
     ionq/
 ```
 
-Each bootcamp day has a notebook with exercises to complete, a solutions notebook with every exercise filled in and its outputs, and a PDF of notes that explains the same material with figures and references. Days are posted as they are ready.
+Each bootcamp day has a notebook with exercises to complete, a solutions notebook with every exercise filled in and its outputs, and a PDF of notes that explains the same material with figures and references. Day 3 is a recorded demo from qBraid, so that folder holds the video and a README instead. Days are posted as they are ready.
 
 ## Running the notebooks
 
