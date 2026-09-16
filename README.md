@@ -22,7 +22,8 @@ The Discord invite is sent to accepted participants by email.
 | When | What |
 |---|---|
 | September 14–25 | Bootcamp, one entry per weekday |
-| Friday, September 25, 5:00 PM | Check-in and welcome ceremony |
+| Friday, September 25, 5:00 PM | Check-in |
+| Friday, September 25, 5:30 PM | Welcome ceremony and challenge teasers |
 | Saturday, September 26, 10:00 AM | Hacking begins |
 | Sunday, September 27, 10:00 AM | Submissions close on Devpost |
 | Sunday, September 27, 12:00 PM | Judging presentations |
@@ -56,7 +57,7 @@ Three challenge sponsors each write one challenge. Teams rank their preferences 
 ## Repository layout
 
 ```
-SC-Quantathon-v3/
+SC-Quantathon-v3-2026/
   README.md
   LICENSE                      # Apache-2.0
   requirements.txt
@@ -67,7 +68,9 @@ SC-Quantathon-v3/
       1, notes - Setup, Python Refresher, and Your First Circuit.pdf
       src/                     # LaTeX source and figure script for the notes
     day-2/                     # same three files plus src/
-    day-4/ ... day-7/          # no day-3 folder: that day is qBraid's recorded demo; days 8 to 10 to come
+                               # each later day is added on the morning it is released;
+                               # there is no day-3 folder, that day is qBraid's recorded demo
+                               # and the video is on the bootcamp page
   challenges/
     srnl/                      # README now; brief and starter material Saturday, September 26
     quantum-rings/
@@ -83,8 +86,8 @@ The notebooks are written to run on qBraid Lab, the environment used during the 
 To run locally instead:
 
 ```bash
-git clone https://github.com/ClemsonQuantum/SC-Quantathon-v3.git
-cd SC-Quantathon-v3
+git clone https://github.com/ClemsonQuantum/SC-Quantathon-v3-2026.git
+cd SC-Quantathon-v3-2026
 conda create -n scqv3 python=3.12
 conda activate scqv3
 pip install -r requirements.txt
