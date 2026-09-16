@@ -157,7 +157,7 @@ XOR alone is also irreversible, since $(0,1)$ and $(1,0)$ both give 1. But the t
 \end{equation}
 sends the four inputs to four distinct outputs, so it can be undone. In words: keep the first bit, and flip the second bit when the first is 1. Every quantum gate is reversible, and Eq.~\eqref{eq:cnot} is the truth table of the two-qubit gate called CNOT that appears on Day~4.
 
-There is a counting argument behind this. A gate on $n$ bits has $2^n$ possible inputs. It is reversible exactly when it sends them to $2^n$ distinct outputs, that is, when its table is a \emph{permutation} of the $2^n$ bitstrings, which also forces it to have as many output bits as input bits. NOT permutes two strings, Eq.~\eqref{eq:cnot} permutes four (it swaps $01$ and $11$ and fixes the rest), and AND sends four inputs onto two outputs and so cannot be a permutation. The quantum rule of Day~2, that a gate is a unitary matrix, is the same requirement stated for amplitudes instead of bits: a unitary sends distinct states to distinct states and has an inverse.
+There is a counting argument behind this. A gate on $n$ bits has $2^n$ possible inputs. It is reversible when it sends them to $2^n$ distinct outputs; with as many output bits as input bits, that means its table is a \emph{permutation} of the $2^n$ bitstrings. NOT permutes two strings, Eq.~\eqref{eq:cnot} permutes four (writing the pair as $ab$, it swaps $10$ and $11$ and fixes the rest), and AND sends four inputs onto two outputs and so cannot be a permutation. The quantum rule of Day~2, that a gate is a unitary matrix, is the same requirement stated for amplitudes instead of bits: a unitary sends distinct states to distinct states and has an inverse.
 
 \section{Qubits, in words}
 
@@ -260,7 +260,7 @@ job = Sampler(mode=backend).run([qc_isa], shots=1000)
 counts = job.result()[0].data.c.get_counts()
 \end{lstlisting}
 
-Three ways of producing one random bit appear in the notebook: a classical coin from a seeded pseudorandom generator (section 6.2), the circuit on a simulator (section 7.2), and the same circuit on a quantum processor (this section). For the processor there are two runs to compare: the 1000-shot run on \code{ibm\_marrakesh} that the notebook caches for anyone without an account, and a live 1000-shot run on \code{ibm\_kingston} recorded in the solutions notebook. Table~\ref{tab:three} lists them with the distance of the count of zeros from 500 in units of the $\sigma \approx 16$ of Eq.~\eqref{eq:sigma}; Figure~\ref{fig:hardware} draws them side by side.
+Three ways of producing one random bit appear in the notebook: a classical coin from a seeded pseudorandom generator (section 6.2), the circuit on a simulator (section 7.2), and the same circuit on a quantum processor (this section). The processor run is the live 1000-shot job on \code{ibm\_kingston} recorded in the solutions notebook. Table~\ref{tab:three} lists the three with the distance of the count of zeros from 500 in units of the $\sigma \approx 16$ of Eq.~\eqref{eq:sigma}; Figure~\ref{fig:hardware} draws them side by side.
 
 \begin{table}[h]
 \centering
@@ -271,24 +271,23 @@ source & count of 0 & count of 1 & $|{\rm count\ of\ 0} - 500| / \sigma$ \\
 \midrule
 classical coin, \code{rng.integers} & 484 & 516 & 1.0 \\
 simulator, \code{AerSimulator} & 503 & 497 & 0.2 \\
-quantum processor, \code{ibm\_marrakesh} (cached) & 464 & 536 & 2.3 \\
-quantum processor, \code{ibm\_kingston} (live) & 295 & 705 & 13.0 \\
+quantum processor, \code{ibm\_kingston} & 295 & 705 & 13.0 \\
 \bottomrule
 \end{tabular}
-\caption{One random bit, 1000 draws each: a coin, a simulator, and two processors.}
+\caption{One random bit, 1000 draws each, three ways.}
 \label{tab:three}
 \end{table}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.62\textwidth]{classical_sim_hardware}
-\caption{The four rows of Table~\ref{tab:three}. The dashed line is the ideal 500.}
+\caption{The three rows of Table~\ref{tab:three}. The dashed line is the ideal 500.}
 \label{fig:hardware}
 \end{figure}
 
 The coin and the simulator sit within one standard deviation of 500/500, because both are exact samples from a fair distribution. They differ from each other only in what they are simulating: the coin is \code{rng.integers}, the simulator is the linear algebra of Section~\ref{sec:qrng}. Neither is physically random; both repeat given the same seed.
 
-The two hardware rows teach two different lessons. The \code{ibm\_marrakesh} run, 464 zeros, is 2.3 standard deviations low. For a Gaussian the two-sided probability of a deviation that large is 0.021, so a fair coin does this, in one direction or the other, about once in fifty runs, and a single run like it is no evidence of bias. The \code{ibm\_kingston} run is another matter: 295 zeros is thirteen standard deviations from 500, and no amount of shot noise produces that. The circuit ran on physical qubit~0 of the chip (the transpiler at optimization level 1 takes the first qubit rather than searching for a good one), and that qubit's calibration at the time was unremarkable: a readout error of 1.9\% in each direction, a $\sqrt X$ error of $2\times10^{-4}$, a $T_1$ of 370~$\mu$s. None of those predicts a 70/30 split. The device simply disagreed with its own calibration during that job, which happens: calibrations are snapshots taken every few hours, and a qubit can drift, or couple to a defect in its surroundings, in between. Real processors always add \emph{readout error}, the chip recording a 0 as a 1 or the reverse at the percent level, and for a 50/50 state only the asymmetry of that error shifts the counts; but a shift of twenty points is something else, and the right response is to rerun on a different qubit or machine before believing either result. Day~5 reads the calibration table, chooses qubits with it, and measures readout error directly.
+The hardware row is the one to look at twice. A run a couple of standard deviations from 500 would be ordinary: for a Gaussian the two-sided probability of a 2-$\sigma$ deviation is 0.046, so a fair coin does that about once in twenty runs, and one such run is no evidence of bias. The \code{ibm\_kingston} run is another matter: 295 zeros is thirteen standard deviations from 500, and no amount of shot noise produces that. The circuit ran on physical qubit~0 of the chip (the transpiler at optimization level 1 takes the first qubit rather than searching for a good one), and that qubit's calibration at the time was unremarkable: a readout error of 1.9\% in each direction, a $\sqrt X$ error of $2\times10^{-4}$, a $T_1$ of 370~$\mu$s. None of those predicts a 70/30 split. The device simply disagreed with its own calibration during that job, which happens: calibrations are snapshots taken every few hours, and a qubit can drift, or couple to a defect in its surroundings, in between. Real processors always add \emph{readout error}, the chip recording a 0 as a 1 or the reverse at the percent level, and for a 50/50 state only the asymmetry of that error shifts the counts; but a shift of twenty points is something else, and the right response is to rerun on a different qubit or machine before believing either result. Day~5 reads the calibration table, chooses qubits with it, and measures readout error directly.
 
 \section{Summary}
 

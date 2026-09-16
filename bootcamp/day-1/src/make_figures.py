@@ -2,7 +2,7 @@
 
 Draws the figures from the numbers the executed solutions notebook printed (September 15, 2026), so the notes
 quote exactly what the notebook shows. The simulator counts there are unseeded, so they are copied in as data.
-Hardware: ibm_marrakesh (cached in the notebook) and ibm_kingston (the live run recorded in the solutions notebook).
+Hardware: ibm_kingston, the live run recorded in the solutions notebook.
 """
 from __future__ import annotations
 
@@ -19,7 +19,6 @@ OUT = Path(__file__).parent / "figures"
 OUT.mkdir(exist_ok=True)
 SEED = 7
 SHOTS = 1000
-QPU_COUNTS = {"0": 464, "1": 536}          # ibm_marrakesh, 1000 shots (the cached run in the notebook)
 LIVE_COUNTS = {"0": 295, "1": 705}         # ibm_kingston, physical qubit 0, 1000 shots, job dakvguc62pvc739q54eg
 SIM_COUNTS = {"0": 503, "1": 497}          # AerSimulator, 1000 shots, from the executed solutions notebook
 P_AT_NOTEBOOK = {10: 0.700, 100: 0.460, 1000: 0.497, 10000: 0.502}   # section 7.3 of the executed notebook
@@ -79,17 +78,17 @@ print("[3/4] shots_convergence.pdf   notebook P(0) at 10/100/1000/10000 shots:",
 rng = np.random.default_rng(seed=SEED)
 flips = rng.integers(0, 2, size=SHOTS)
 coin_counts = {"0": int(np.sum(flips == 0)), "1": int(np.sum(flips == 1))}
-rows = [("classical coin", coin_counts, GREEN), ("AerSimulator", sim_counts, BLUE), ("ibm_marrakesh (cached)", QPU_COUNTS, ORANGE), ("ibm_kingston (live)", LIVE_COUNTS, "#d62728")]
-x = np.arange(2); w = 0.2
-fig, ax = plt.subplots(figsize=(5.6, 3.1))
+rows = [("classical coin", coin_counts, GREEN), ("AerSimulator", sim_counts, BLUE), ("ibm_kingston", LIVE_COUNTS, ORANGE)]
+x = np.arange(2); w = 0.26
+fig, ax = plt.subplots(figsize=(5.2, 3.0))
 for i, (label, counts, color) in enumerate(rows):
-    b = ax.bar(x + (i - 1.5) * w, [counts.get(k, 0) for k in "01"], w, label=label, color=color)
+    b = ax.bar(x + (i - 1) * w, [counts.get(k, 0) for k in "01"], w, label=label, color=color)
     ax.bar_label(b, padding=2, fontsize=8)
 ax.axhline(SHOTS / 2, ls="--", lw=0.8, color=GRAY)
 ax.set_xticks(x, ["0", "1"]); ax.set_xlabel("outcome"); ax.set_ylabel(f"counts out of {SHOTS}"); ax.set_ylim(0, 800)
-ax.legend(frameon=False, loc="upper center", bbox_to_anchor=(0.5, 1.2), ncol=2, fontsize=8)
+ax.legend(frameon=False, loc="upper center", bbox_to_anchor=(0.5, 1.16), ncol=3)
 fig.savefig(OUT / "classical_sim_hardware.pdf"); plt.close(fig)
 sigma = np.sqrt(SHOTS * 0.25)
-print("[4/4] classical_sim_hardware.pdf   coin:", coin_counts, " sim:", sim_counts, " marrakesh:", QPU_COUNTS, " kingston:", LIVE_COUNTS)
+print("[4/4] classical_sim_hardware.pdf   coin:", coin_counts, " sim:", sim_counts, " kingston:", LIVE_COUNTS)
 print("      deviations of the count of 0 from 500, in sigma:",
       {name: round(abs(c["0"] - 500) / sigma, 2) for name, c, _ in rows})
