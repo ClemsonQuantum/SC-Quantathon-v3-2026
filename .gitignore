@@ -4,9 +4,6 @@ ruff.toml
 
 # Bootcamp days not yet released. Each day is published on the morning it is due:
 # delete that day's line below, then `git add bootcamp/day-N` and commit.
-bootcamp/day-4/
-bootcamp/day-5/
-bootcamp/day-6/
 bootcamp/day-7/
 bootcamp/day-8/
 bootcamp/day-9/
@@ -29,6 +26,10 @@ qiskit-ibm.json
 .qiskit/
 .qbraid/
 .quantumrings/
+
+# Headless verification copies: docs/build/verify.py writes exec_<name>.ipynb into the
+# repo root. Untracked and easy to sweep up with `git add -A`; never publish them.
+exec_*.ipynb
 
 # Python / Jupyter
 __pycache__/

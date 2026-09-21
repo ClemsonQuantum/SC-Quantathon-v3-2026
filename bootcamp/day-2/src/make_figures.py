@@ -24,7 +24,7 @@ OUT.mkdir(exist_ok=True)
 SEED = 7
 SHOTS = 1000
 DIRECT_COUNTS = [{"0": 502, "1": 498}, {"0": 511, "1": 489}]  # notebook section 5, |+> and |-> measured directly
-SIM_FOUR = [{"0": 487, "1": 513}, {"0": 505, "1": 495}, {"0": 1000}, {"1": 1000}]  # notebook section 9, simulator
+SIM_FOUR = [{"0": 451, "1": 549}, {"0": 487, "1": 513}, {"0": 1000}, {"1": 1000}]  # notebook section 9, simulator
 QPU_FOUR = [
     {"0": 308, "1": 692},
     {"0": 299, "1": 701},
