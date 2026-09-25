@@ -21,7 +21,7 @@ The Discord invite is sent to accepted participants by email.
 
 | When | What |
 |---|---|
-| September 14–25 | Bootcamp, one entry per weekday |
+| September 14–22 | Bootcamp, one entry per weekday |
 | Friday, September 25, 5:00 PM | Check-in |
 | Friday, September 25, 5:30 PM | Welcome ceremony and challenge teasers |
 | Saturday, September 26, 10:00 AM | Hacking begins |
@@ -31,7 +31,7 @@ The Discord invite is sent to accepted participants by email.
 
 ## Bootcamp
 
-The bootcamp is self-paced and released one weekday at a time from September 14 to 25. Each day has written notes and a notebook you can run; Day 3 is a recorded demo from qBraid. It assumes no prior quantum experience and is open to everyone, registered or not. Materials land in `bootcamp/` as they are posted, one folder per day with a notebook, a solutions notebook, and a PDF of notes. Day 3 is the exception: its folder holds the recording instead.
+The bootcamp is self-paced and released one weekday at a time from September 14 to 22. Each day has written notes and a notebook you can run; Day 3 is a recorded demo from qBraid. It assumes no prior quantum experience and is open to everyone, registered or not. Materials land in `bootcamp/` as they are posted, one folder per day with a notebook, a solutions notebook, and a PDF of notes. Day 3 is the exception: its folder holds the recording instead.
 
 | Day | Date | Topic |
 |---|---|---|
@@ -42,9 +42,6 @@ The bootcamp is self-paced and released one weekday at a time from September 14 
 | 5 | Fri, Sep 18 | Real Hardware: Transpilation, Noise, and Error Mitigation |
 | 6 | Mon, Sep 21 | Variational Algorithms: VQE and QAOA |
 | 7 | Tue, Sep 22 | Quantum Machine Learning |
-| 8 | Wed, Sep 23 | SRNL: Mapping Applied Research to Qubits |
-| 9 | Thu, Sep 24 | Quantum Rings: Simulating Beyond Statevector |
-| 10 | Fri, Sep 25 | IonQ: Trapped Ions and Native Gates |
 
 ## Challenges
 
@@ -52,7 +49,6 @@ Three challenge sponsors each write one challenge. Teams rank their preferences 
 
 - Savannah River National Laboratory
 - Quantum Rings
-- IonQ
 
 ## Repository layout
 
@@ -73,7 +69,6 @@ SC-Quantathon-v3-2026/
   challenges/
     srnl/                      # README now; brief and starter material Saturday, September 26
     quantum-rings/
-    ionq/
 ```
 
 Each bootcamp day has a notebook with exercises to complete, a solutions notebook with every exercise filled in and its outputs, and a PDF of notes that explains the same material with figures and references. Day 3 is a recorded demo from qBraid, so that folder holds the video and a README instead. Days are posted as they are ready.
@@ -101,7 +96,7 @@ Every team submits once on Devpost before Sunday, September 27 at 10:00 AM. The 
 
 ## Sponsors
 
-Challenge sponsors: Savannah River National Laboratory, Quantum Rings, IonQ.
+Challenge sponsors: Savannah River National Laboratory and Quantum Rings.
 Powered by qBraid. Hosted by the Watt Family Innovation Center.
 Partners: South Carolina Quantum, Clemson University College of Engineering, Computing and Applied Sciences, TraCR (National Center for Transportation Cybersecurity and Resiliency), Western Carolina University College of Engineering and Technology, GVL Limo, Robinson Bradshaw.
 
