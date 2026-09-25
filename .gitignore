@@ -2,13 +2,7 @@
 docs/
 ruff.toml
 
-# Bootcamp days not yet released. Each day is published on the morning it is due:
-# delete that day's line below, then `git add bootcamp/day-N` and commit.
-bootcamp/day-8/
-bootcamp/day-9/
-bootcamp/day-10/
-
-# Credentials: IBM Quantum API keys, instance CRNs, qBraid/IonQ/Quantum Rings tokens.
+# Credentials: IBM Quantum API keys, instance CRNs, qBraid/Quantum Rings tokens.
 # Never commit these in any form. The notebooks read them from a prompt or from .env.
 .env
 .env.*

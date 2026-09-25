@@ -2,7 +2,7 @@
 
 Bootcamp and challenge materials for SC Quantathon v3, the 24-hour quantum computing hackathon hosted by Clemson Quantum Club at the Watt Family Innovation Center, Clemson University, September 25–27, 2026.
 
-SC Quantum founded the Quantathon and ran its first two editions in the Southeast. This third edition is hosted at Clemson. Teams of 3–5 undergraduate or graduate students take on a challenge written by one of three challenge sponsors, build for 24 hours, and present to judges on Sunday.
+SC Quantum founded the Quantathon and ran its first two editions in the Southeast. This third edition is hosted at Clemson. Teams of 3–5 undergraduate or graduate students take on a challenge written by one of two challenge sponsors, build for 24 hours, and present to judges on Sunday.
 
 ## Links
 
@@ -21,7 +21,7 @@ The Discord invite is sent to accepted participants by email.
 
 | When | What |
 |---|---|
-| September 14–22 | Bootcamp, one entry per weekday |
+| September 14–22 | Seven-day, self-paced bootcamp |
 | Friday, September 25, 5:00 PM | Check-in |
 | Friday, September 25, 5:30 PM | Welcome ceremony and challenge teasers |
 | Saturday, September 26, 10:00 AM | Hacking begins |
@@ -31,7 +31,7 @@ The Discord invite is sent to accepted participants by email.
 
 ## Bootcamp
 
-The bootcamp is self-paced and released one weekday at a time from September 14 to 22. Each day has written notes and a notebook you can run; Day 3 is a recorded demo from qBraid. It assumes no prior quantum experience and is open to everyone, registered or not. Materials land in `bootcamp/` as they are posted, one folder per day with a notebook, a solutions notebook, and a PDF of notes. Day 3 is the exception: its folder holds the recording instead.
+Seven-day, self-paced bootcamp, September 14–22, 2026. The schedule below lists all seven days. Each day has written notes and a notebook you can run; Day 3 is a recorded demo from qBraid. It assumes no prior quantum experience and is open to everyone, registered or not. Materials land in `bootcamp/` as they are posted, one folder per day with a notebook, a solutions notebook, and a PDF of notes. Day 3 is the exception: its folder holds the recording instead.
 
 | Day | Date | Topic |
 |---|---|---|
@@ -45,7 +45,7 @@ The bootcamp is self-paced and released one weekday at a time from September 14 
 
 ## Challenges
 
-Three challenge sponsors each write one challenge. Teams rank their preferences Friday evening, assignments are posted Friday at 10:00 PM, and full briefs are released at the Saturday opening ceremony. Each challenge folder holds a README now; teasers are added Friday, September 25, and briefs plus any starter material at the opening ceremony on Saturday, September 26.
+Two challenge sponsors each write one challenge. Teams rank their preferences Friday evening, assignments are posted Friday at 10:00 PM, and full briefs are released at the Saturday opening ceremony. Each challenge folder holds a README now; teasers are added Friday, September 25, and briefs plus any starter material at the opening ceremony on Saturday, September 26.
 
 - Savannah River National Laboratory
 - Quantum Rings
@@ -65,13 +65,13 @@ SC-Quantathon-v3-2026/
       src/                     # LaTeX source and figure script for the notes
     day-2/                     # same three files plus src/
     day-3/                     # the recorded qBraid demo and a README; no notebook or notes
-                               # each later day is added on the morning it is released
+                               # days 4–7 follow the same structure as day 2
   challenges/
     srnl/                      # README now; brief and starter material Saturday, September 26
     quantum-rings/
 ```
 
-Each bootcamp day has a notebook with exercises to complete, a solutions notebook with every exercise filled in and its outputs, and a PDF of notes that explains the same material with figures and references. Day 3 is a recorded demo from qBraid, so that folder holds the video and a README instead. Days are posted as they are ready.
+Each bootcamp day has a notebook with exercises to complete, a solutions notebook with every exercise filled in and its outputs, and a PDF of notes that explains the same material with figures and references. Day 3 is a recorded demo from qBraid, so that folder holds the video and a README instead. All seven days are available.
 
 ## Running the notebooks
 
