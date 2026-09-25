@@ -45,10 +45,12 @@ Seven-day, self-paced bootcamp, September 14–22, 2026. The schedule below list
 
 ## Challenges
 
-Two challenge sponsors each write one challenge. Teams rank their preferences Friday evening, assignments are posted Friday at 10:00 PM, and full briefs are released at the Saturday opening ceremony. Each challenge folder holds a README now; teasers are added Friday, September 25, and briefs plus any starter material at the opening ceremony on Saturday, September 26.
+Two challenge sponsors each write one technical challenge. Teams rank their preferences Friday evening, assignments are posted Friday at 10:00 PM, and full briefs are released at the Saturday opening ceremony. Each challenge folder holds a README now; teasers are added Friday, September 25, and briefs plus any starter material at the opening ceremony on Saturday, September 26.
 
 - Savannah River National Laboratory
 - Quantum Rings
+
+Teams can also take part in the **Social Media Challenge**: create appropriate Instagram posts about the hackathon with your team and tag **[@clemsonquantum](https://www.instagram.com/clemsonquantum/)**. See the [Social Media Challenge on the event website](https://clemsonquantum.com/events/hackathons/sc-quantathon-v3-2026/#social-media-challenge) for details.
 
 ## Repository layout
 
