@@ -30,7 +30,8 @@ REAL = {
     "01": 6,
     "10": 4,
 }  # Day 4 run on ibm_kingston (Heron r2), physical qubits 55 and 59, 1000 shots
-NB = json.load(open(Path(__file__).parent / "notebook_values.json"))  # the executed solutions notebook's variables
+# the executed solutions notebook's variables
+NB = json.loads((Path(__file__).parent / "notebook_values.json").read_text())
 rng = np.random.default_rng(SEED)
 
 

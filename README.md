@@ -24,14 +24,27 @@ The Discord invite is sent to accepted participants by email.
 | September 14–22 | Seven-day, self-paced bootcamp |
 | Friday, September 25, 5:00 PM | Check-in |
 | Friday, September 25, 5:30 PM | Welcome ceremony and challenge teasers |
-| Saturday, September 26, 10:00 AM | Hacking begins |
-| Sunday, September 27, 10:00 AM | Submissions close on Devpost |
-| Sunday, September 27, 12:00 PM | Judging presentations |
+| Friday, September 25, 6:30 PM | Dinner and challenge ranking opens |
+| Friday, September 25, 6:30 PM | Social Media Challenge submissions open |
+| Friday, September 25, 9:00 PM | Challenge ranking due |
+| Friday, September 25, 10:00 PM | Challenge assignments and team rooms posted on Discord; Watt closes for the night |
+| Saturday, September 26, 8:30 AM | Breakfast |
+| Saturday, September 26, 9:30 AM | Opening ceremony |
+| Saturday, September 26, 10:00 AM | Challenge kickoff and hacking begins |
+| Saturday, September 26, 12:00 PM | Lunch |
+| Saturday, September 26, 3:30 PM | Sponsor tabling |
+| Saturday, September 26, 6:00 PM | Dinner |
+| Saturday, September 26, 9:00 PM | Sponsor firesides |
+| Sunday, September 27, 12:00 AM | Midnight snack |
+| Sunday, September 27, 8:30 AM | Breakfast |
+| Sunday, September 27, 10:00 AM | Technical project submissions due on Devpost |
+| Sunday, September 27, 12:00 PM | Lunch and judging presentations |
+| Sunday, September 27, 2:00 PM | Social Media Challenge submissions close |
 | Sunday, September 27, 6:00 PM | Awards ceremony |
 
 ## Bootcamp
 
-Seven-day, self-paced bootcamp, September 14–22, 2026. The schedule below lists all seven days. Each day has written notes and a notebook you can run; Day 3 is a recorded demo from qBraid. It assumes no prior quantum experience and is open to everyone, registered or not. Materials land in `bootcamp/` as they are posted, one folder per day with a notebook, a solutions notebook, and a PDF of notes. Day 3 is the exception: its folder holds the recording instead.
+Seven-day, self-paced bootcamp, September 14–22, 2026. The schedule below lists all seven days. Each day has written notes and a notebook you can run; Day 3 is a recorded demo from qBraid. It assumes no prior quantum experience and is open to everyone, registered or not. Materials are in `bootcamp/`, one folder per day with a notebook, a solutions notebook, and a PDF of notes. Day 3 is the exception: its folder holds the recording instead.
 
 | Day | Date | Topic |
 |---|---|---|
@@ -45,7 +58,7 @@ Seven-day, self-paced bootcamp, September 14–22, 2026. The schedule below list
 
 ## Challenges
 
-Two challenge sponsors each write one technical challenge. Teams rank their preferences Friday evening, assignments are posted Friday at 10:00 PM, and full briefs are released at the Saturday opening ceremony. Each challenge folder holds a README now; teasers are added Friday, September 25, and briefs plus any starter material at the opening ceremony on Saturday, September 26.
+Two challenge sponsors each write one challenge. Teams rank their preferences Friday evening, assignments are posted Friday at 10:00 PM, and full briefs are released at the Saturday opening ceremony. Each challenge folder holds a README now; teasers are added Friday, September 25, and briefs plus any starter material at the opening ceremony on Saturday, September 26.
 
 - Savannah River National Laboratory
 - Quantum Rings
@@ -90,7 +103,7 @@ pip install -r requirements.txt
 jupyter lab
 ```
 
-The pinned `requirements.txt` is at the repository root; the notebooks are verified against it.
+`requirements.txt` is at the repository root, with the Qiskit packages pinned to the minor versions the notebooks are verified against.
 
 ## Submissions
 

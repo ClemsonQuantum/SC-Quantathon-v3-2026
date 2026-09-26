@@ -198,7 +198,7 @@ plus_plus.h(0)
 plus_plus.h(1)
 fig, axes = plt.subplots(2, 2, figsize=(6.8, 4.6), sharey=True)
 res = {}
-for i, (name, prep) in enumerate([("Bell state", bell), (r"$|+\rangle|+\rangle$", plus_plus)]):
+for i, (name, _prep) in enumerate([("Bell state", bell), (r"$|+\rangle|+\rangle$", plus_plus)]):
     for j, basis in enumerate("ZX"):
         c = NB_CORR[(name, basis)]
         res[(name, basis)] = c

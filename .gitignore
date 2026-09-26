@@ -26,12 +26,15 @@ exec_*.ipynb
 
 # Python / Jupyter
 __pycache__/
+.ruff_cache/
+.mypy_cache/
 *.pyc
 .ipynb_checkpoints/
 .venv/
 venv/
 
 # LaTeX build files (the PDFs are kept)
+bootcamp/*/src/notes.pdf
 *.aux
 *.log
 *.out

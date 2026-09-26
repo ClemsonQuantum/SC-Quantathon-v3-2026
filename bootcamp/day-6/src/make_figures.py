@@ -210,7 +210,7 @@ ct = []
 minimize(lambda p: ct.append(counted(p)) or ct[-1], x0, method="COBYLA", options={"maxiter": 200})
 runs["COBYLA"] = (ct, evaluations[0])
 fig, ax = plt.subplots(1, 2, figsize=(8, 2.9))
-for (name, (h, n_ev)), col in zip(runs.items(), [BLUE, ORANGE, GREEN]):
+for (name, (h, _n_ev)), col in zip(runs.items(), [BLUE, ORANGE, GREEN]):
     ax[0].plot(h, color=col, label=name, lw=1)
     ax[1].semilogy(np.maximum(np.array(h) - E0, 1e-12), color=col, label=name, lw=1)
 ax[0].axhline(E0, color=GRAY, ls="--")
@@ -491,7 +491,7 @@ def negcut(p):
 
 best = None
 restarts = []
-for r in range(3):
+for _ in range(3):
     x = rng.uniform(0, np.pi, 4)
     s = minimize(negcut, x, method="COBYLA", options={"maxiter": 300})
     restarts.append(-s.fun)
