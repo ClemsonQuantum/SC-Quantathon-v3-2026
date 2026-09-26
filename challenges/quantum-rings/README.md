@@ -2,6 +2,7 @@
 
 Predict how long a quantum-circuit simulation will take, straight from the circuit file, without running it.
 
+[Quantum Rings challenge repo](https://github.com/Quantum-Rings/quantumrings-challenge-quantathonv3)
 
 ## Contents
 
