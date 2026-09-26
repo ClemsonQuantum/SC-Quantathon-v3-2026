@@ -7,3 +7,9 @@ scikit-learn
 matplotlib
 pylatexenc
 jupyter
+
+# Challenge starter code: SRNL notebook (pandas, lightgbm), Quantum Rings harness (zstandard).
+# On macOS, lightgbm also needs `brew install libomp`; without it the SRNL notebook falls back to scikit-learn.
+pandas
+lightgbm
+zstandard>=0.22

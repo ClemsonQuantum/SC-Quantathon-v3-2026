@@ -103,7 +103,7 @@ pip install -r requirements.txt
 jupyter lab
 ```
 
-`requirements.txt` is at the repository root, with the Qiskit packages pinned to the minor versions the notebooks are verified against.
+`requirements.txt` is at the repository root, with the Qiskit packages pinned to the minor versions the notebooks are verified against. It also covers the challenge starter code: the SRNL notebook and the Quantum Rings harness.
 
 ## Submissions
 
